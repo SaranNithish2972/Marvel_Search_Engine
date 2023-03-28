@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login|THE MARVEL SEARCH ENGINE</title>
+        <link rel="stylesheet" href="./css/form.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/registration.js"></script>
+    </head>
+<body>
+    
+    <header>
+        <nav class="upper_nav_bar">
+            <ul>
+                <li class="upper_nav_bar__item "><a href="https://www.marvel.com/" target="_blank" >MARVEL OFFICIAL</a> </li>
+                <li class="upper_nav_bar__item "><a href="tutorial.html">HOW TO USE</a></li>
+                <li class="upper_nav_bar__item "><a href="index.html">HOME</a></li>
+                <li class="upper_nav_bar__item "><a href="registration.html">SIGN UP</a></li>
+            </ul>
+        </nav>
+         <div class="title_container">
+            <h1 id="mainTitle" class="title clickable">THE MARVEL<br> <span>SEARCH ENGINE</span></h1>
+        </div>
+    </header>
+
+    <main>
+       
+        <div class="guidebook__control_panel" id="message">       
+        <form class="form" method="post" action="">
+        <h2 class="subtitle">LOGIN</h2>
+        <label>Email :</label>
+        <input type="text" name="demail" id="email">
+        <label>Password :</label>
+        <input type="password" name="password" id="password">      
+        <input type="button" name="register" id="register" value="LOGIN" onclick="submitForm();">
+        </form>
+        </div>
+     </main>
+    <footer>       
+        &nbsp;Designed by Adhava & Saran&nbsp;    
+    </footer>
+</body>
+<script type="text/javascript">
+    function submitForm()
+    {
+        var email=$('input[name=demail]').val();
+        var password=$('input[name=password]').val();
+        if ( email == '' || password == '' ) {
+    alert("Please fill all fields...!!!!!!");
+    } 
+    else {
+        var formData={email:email,password:password};
+        $.ajax({url:"http://localhost/Marvel_Search_Engine/submit1.php",type:'POST',data:formData,success: function(response)
+    {
+			if(response== "Login Successful")
+                    {  
+                    alert("Login successful!");
+					window.location.href = "loginhome.php";	
+                    }
+                    else{
+                        alert("invalid creditionals")
+               }
+    }
+    });
+    }}
+
+</script>
+</html>

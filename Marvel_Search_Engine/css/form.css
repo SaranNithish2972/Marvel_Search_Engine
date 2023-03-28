@@ -1,0 +1,306 @@
+/* Below line is used for online Google font */
+/* LOCAL FONTS */
+@font-face {
+    font-family: 'MarvelFont';
+    src:  url('../assets/FONTS/marvelregular.ttf');
+  }
+
+:root {
+    --marvel-font: 'MarvelFont';
+    --city-blue: #09426f;  
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.301);
+  }
+
+::-webkit-scrollbar-thumb {
+    background: rgb(223, 153, 24);
+    border: solid 1px black;
+    border-radius: 100px;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--city-blue);    
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.clickable {
+    cursor: pointer;
+}
+
+
+
+/* HEADER */
+
+header {
+    width: 100%;
+}
+
+.upper_nav_bar>ul{
+    display: flex;
+    
+    justify-content: space-around;
+
+    width: 100%;
+    padding: 10px;
+
+    background-color: rgb(61, 61, 61);
+}
+.upper_nav_bar__item {
+    color: rgb(196, 196, 196);
+    font-size: 1.6rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.upper_nav_bar__item:hover {
+    text-decoration: underline;
+}
+.title_container {
+    display: flex;
+    justify-content: center;
+
+    background-color: rgb(122, 0, 0);
+   
+    background-size: contain;
+    background-position: center;
+}
+.title {
+    color: white;
+    font-size: 7rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--marvel-font);
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.938);
+    letter-spacing: 2px;
+    font-weight: 100;
+    line-height: 25px;
+    padding: 45px 0 20px;
+    background-color: #ED1D24;
+    border: solid 3px black;
+    transition: 0.3s background-color;
+}
+.title:hover{
+    background-image: url('https://i.gifer.com/Xni5.gif');
+}
+
+.title > span {
+    font-size: 3rem;
+}
+
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.guidebook__control_panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+   
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.subtitle {
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 4rem;
+    font-weight: 100;
+    font-family: var(--marvel-font);
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.938);
+}
+.search_bar_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 115px;
+    min-width: 200px;
+    margin: 0 auto;
+    background-image: url('../assets/IMAGES/dialogue_box_white_background.PNG');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.control_panel__search_bar {
+    margin: 10px auto;
+    padding: 5px;
+    text-align: center;
+    height: 70px;
+    width: 190px;
+   
+    font-size: 3rem;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-family: var(--comic-font);
+}
+.control_panel__button_container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 5px auto 10px;
+}
+.control_panel__button {
+    width: 40%;
+    padding: 10px;
+}
+
+
+
+
+footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: flex-end;
+    align-items: center;
+    font-size: 3rem;
+
+   
+    height: 80px;
+    width: 100%;
+
+    background-color: rgb(223, 129, 41);
+    color: black;
+    font-family: var(--comic-font);
+    border: black solid 3px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Mobile */
+@media (min-width: 450px) {
+    .guidebook__control_panel{
+        height: 70vh;
+    }
+    .control_panel__button_container{
+
+        max-width: 600px;
+    }
+    .search_bar_container {
+        width: 300px;
+        height: 150px;
+    }
+    .control_panel__search_bar {
+        margin-top: 20px;
+        font-size: 4rem;
+        width: 280px;
+    }
+    
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    .subtitle {
+        font-size: 6rem;
+    }
+   
+}
+
+
+
+hr{
+margin-bottom: 30px;
+}
+div.container{
+width: 960px;
+height: 610px;
+margin:50px auto;
+font-family: 'Droid Serif', serif;
+position:relative;
+}
+div.main{
+width: 320px;
+float:left;
+padding: 10px 55px 40px;
+background-color: rgba(187, 255, 184, 0.65);
+border: 15px solid white;
+box-shadow: 0 0 10px;
+border-radius: 2px;
+font-size: 13px;
+}
+input[type=text],[type=password] {
+width: 97.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px #00F5FF;
+border: 2px solid #00F5FF;
+color: #4f4f4f;
+font-size: 16px;
+}
+label{
+    color:  #ED1D24;;
+    font-size: 20px;
+   
+   
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--marvel-font);
+   
+    letter-spacing: 2px;
+}
+#register {
+font-size: 20px;
+margin-top: 15px;
+background: linear-gradient(#22abe9 5%, #36caf0 100%);
+border: 1px solid #0F799E;
+padding: 7px 35px;
+color: white;
+text-shadow: 0px 1px 0px #13506D;
+font-weight: bold;
+border-radius: 2px;
+cursor: pointer;
+width: 100%;
+}
+#register:hover{
+background: linear-gradient(#36caf0 5%, #22abe9 100%);
+}

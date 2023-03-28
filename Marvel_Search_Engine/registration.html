@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up|THE MARVEL SEARCH ENGINE</title>
+        <link rel="stylesheet" href="./css/form.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/registration.js"></script>
+    </head>
+<body>
+    
+    <header>
+        <nav class="upper_nav_bar">
+            <ul>
+                <li class="upper_nav_bar__item "><a href="https://www.marvel.com/" target="_blank" >MARVEL OFFICIAL</a> </li>
+                <li class="upper_nav_bar__item "><a href="tutorial.html">HOW TO USE</a></li>
+                <li class="upper_nav_bar__item "><a href="index.html">HOME</a></li>
+                <li class="upper_nav_bar__item "><a href="login.html">LOG IN</a></li>
+            </ul>
+        </nav>
+         <div class="title_container">
+            <h1 id="mainTitle" class="title clickable">THE MARVEL<br> <span>SEARCH ENGINE</span></h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="guidebook__control_panel" id="message">
+        <form class="form" method="post" action="">
+        <h2 class="subtitle">REGISTRATION FORM</h2>
+        <label>Name :</label>
+        <input type="text" name="dname" id="name">
+        <label>Email :</label>
+        <input type="text" name="demail" id="email">
+        <label>Password :</label>
+        <input type="password" name="password" id="password">
+        <label>Confirm Password :</label>
+        <input type="password" name="cpassword" id="cpassword">
+        <input type="button" name="register" id="register" value="Register" onclick="submitForm();">
+        </form>
+        </div>
+     </main>
+        
+    <footer>    
+           &nbsp;Designed by Adhava & Saran&nbsp;
+    </footer>
+</body>
+<script type="text/javascript">
+    function Login(){
+        
+    }
+    function submitForm()
+    {
+        var name=$('input[name=dname]').val();
+        var email=$('input[name=demail]').val();
+        var password=$('input[name=password]').val();
+        var cpassword=$('input[name=cpassword').val();
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var regex1=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+        if (name == '' || email == '' || password == '' || cpassword == '') {
+    alert("Please fill all fields...!!!!!!");
+    } else if ((password.length) < 8) {
+    alert("Password should atleast 8 character in length...!!!!!!");
+    } else if (!(password).match(cpassword)) {
+    alert("Your passwords don't match. Try again?");
+    } else if(!regex.test(email)){
+    alert("Please enter proper mail address");
+    }
+    else if(!regex1.test(password))
+    {
+        alert("password must contain mix of capital,small letters and numbers");
+    }
+    else {
+        var formData={name:name,email:email,password:password};
+       $.ajax({url:"http://localhost/Marvel_Search_Engine/submit.php",type:'POST',data:formData,success: function(response)
+    {
+        
+        var res = JSON.parse(response);
+					console.log(res);
+					if(res.success == true)
+						$('#message').html('<h2 class="subtitle">Account Created Successfully  </h2> <br> <br><br> <center> ><input type="button" name="register" id="register" value="LOGIN" onclick="Login();">');
+                       else
+                       alert("Username Already Exists");
+    }
+    });
+    }}
+    function Login(){
+        window.location.href = "login.html";
+    }
+</script>
+</html>
